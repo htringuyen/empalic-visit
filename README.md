@@ -1,4 +1,4 @@
-# Empalic Visit: Empalic clinic's appointment scheduling application  
+# Empalic Visit: Clinic appointment scheduling app  
 **Clinic's name: Empalic Clinic**  
 **Main reference website:**
   [Benh-vien-DHYD-DatKham](https://umc-v1.medpro.vn/)  
