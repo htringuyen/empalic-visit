@@ -1,0 +1,7 @@
+id,level,name,description,name_vn,description_vn
+10000,0,Unvailable,This level indicates that the service is currently unavailable at the clinic.,Không có sẵn,Cấp độ này cho biết dịch vụ hiện không có sẵn tại phòng khám.
+10001,1,Foundational Assessment,Suitable for a fundamental evaluation of common concerns.,Kiểm tra cơ bản,Phù hợp cho một đánh giá cơ bản về các vấn đề thông thường.
+10002,2,Standard Diagnosis,Recommended for a typical assessment and diagnosis.,Chẩn đoán tiêu chuẩn,Đề xuất cho một đánh giá và chẩn đoán tiêu chuẩn.
+10003,3,Comprehensive Diagnosis,Appropriate for a detailed and comprehensive examination.,Chẩn đoán toàn diện,Phù hợp cho một cuộc kiểm tra chi tiết và toàn diện.
+10004,4,Specialized Testing,Reserved for specific and advanced diagnostic tests.,Kiểm tra chẩn đoán chuyên sâu,Dành riêng cho các kiểm tra chẩn đoán cụ thể và tiên tiến.
+10005,5,Intensive Care,For serious and critical medical conditions requiring intensive treatment.,Điều trị tập trung,Dành cho các trường hợp bệnh tật nghiêm trọng và cần điều trị tập trung.
