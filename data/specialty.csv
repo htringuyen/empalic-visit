@@ -1,0 +1,40 @@
+id,name,code,intensity_id,synonym
+11100,Neurosurgery,Neurosurgery,,Ngoại Thần Kinh
+11200,Palliative Care,Palliative Care,,Chăm Sóc Giảm Nhẹ
+11300,Neurology,Neurology,,Nội Thần Kinh
+11400,Dermatology,Dermatology,,Da Liễu
+11500,Allergy and immunology,Allergy and immunology,,Dị Ứng - Miễn Dịch Lâm Sàng
+11600,Interventional radiology,Interventional radiology,,Hình Ảnh Học Can Thiệp
+11700,Proctology,Proctology,,Hậu Môn - Trực Tràng Học
+11800,Pulmonology,Pulmonology,,Hô Hấp
+11900,Medical oncology,Medical oncology,,Ung Thư Học
+12100,Hematology,Hematology,,Huyết Học
+12200,Dietetics,Dietetics,,Khám Và Tư Vấn Dinh Dưỡng
+12300,Geriatrics,Geriatrics,,Lão Khoa
+12400,Thoracic and Vascular Surgery,Thoracic and Vascular Surgery,,Lồng Ngực - Mạch Máu
+12500,Ophthalmology,Ophthalmology,,Mắt
+12600,Urology,Urology,,Nam Khoa
+12700,Cardiology,Cardiology,,Ngoại Tim Mạch
+12800,Pediatrics,Pediatrics,,Nhi (trẻ em dưới 15 tuổi)
+12900,Orthopedic,Orthopedic,,Nội Cơ Xương Khớp
+13100,Nephrology,Nephrology,,Nội Thận
+13200,Endocrinology,Endocrinology,,Nội Tiết
+13300,Oral and maxillofacial surgery,Oral and maxillofacial surgery,,Phẫu Thuật Hàm Mặt - RHM
+13400,Physical medicine and rehabilitation,Physical medicine and rehabilitation,,Phục Hồi Chức Năng
+13500,Obstetrics and gynecology,Obstetrics and gynecology,,Sản - Phụ Khoa
+13600,Neonatology,Neonatology,,Sơ Sinh
+13700,Otolaryngology,Otolaryngology,,Tai Mũi Họng
+13800,Psychiatry,Psychiatry,,Tâm Thần Kinh
+13900,Plastic and Cosmetic Surgery,Plastic and Cosmetic Surgery,,Tạo Hình - Thẩm Mỹ
+14100,Aesthetic dermatology,Aesthetic dermatology,,Thẩm Mỹ Da
+14200,Pediatric Neurology,Pediatric Neurology,,Thần Kinh Nhi
+14300,Immunization,Immunization,,Tiêm Ngừa
+14400,Gastroenterology and Hepatology,Gastroenterology and Hepatology,,Tiêu Hóa Gan Mật
+14500,Adult Cardiology,Adult Cardiology,,Tim Bẩm Sinh Người Lớn
+14600,General Medicine,General Medicine,,Tổng Quát
+14700,Psychology,Psychology,,Tâm Lý
+14800,Hepatology,Hepatology,,Gan Mật
+14900,Breast Health,Breast Health,,Vú
+15100,Family Medicine,Family Medicine,,Y Học Gia Đình
+15200,Nuclear Medicine,Nuclear Medicine,,Y Học Hạt Nhân
+15300,Pain Medicine,Pain Medicine,,Y Học Về Đau
