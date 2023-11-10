@@ -1,8 +1,0 @@
-
-POST http://127.0.0.1:8000/old-homef
-
-###
-GET http://127.0.0.1:8000/greeting
-
-###
-POST http://127.0.0.1:8000/
