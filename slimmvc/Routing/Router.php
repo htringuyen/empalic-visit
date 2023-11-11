@@ -1,22 +1,60 @@
 <?php
-namespace Framework\Routing;
+
+namespace Slimmvc\Routing;
+use Slimmvc\Routing\Exception\RouteException;
 use Throwable;
 
 class Router {
 
     private array $routes = [];
     private array $errorHandler = [];
+    private Route $current;
 
     public function add(string $method, string $path, callable $handler): Route {
         $route = $this->routes[] = new Route($method, $path, $handler);
         return $route;
     }
 
+    public function getCurrent(): Route {
+        return $this->current;
+    }
+
+    public function buildUrl(string $routeName, array $pathVariables, array $requestParams): string {
+        foreach ($this->routes as $route) {
+            if ($route->getName() === $routeName) {
+                $finds = [];
+                $replaces = [];
+
+                foreach ($pathVariables as $key => $value) {
+                    $finds[] = "{{$key}}";
+                    $replaces[] = $value;
+
+                    $finds[] = "{{$key}?}";
+                    $replaces[] = $value;
+                }
+
+                $path = str_replace($finds, $replaces, $route->getPath());
+                $path = preg_replace('#{[^}]+}#', '', $path);
+
+                $urlQuery = "?";
+                foreach ($requestParams as $key => $value) {
+                    $urlQuery = $urlQuery."{$key}={$value}&";
+                }
+
+                $urlQuery = rtrim($urlQuery, "&");
+
+                return $path.$urlQuery;
+            }
+        }
+
+        throw new RouteException("No route that has the name {$routeName}");
+    }
+
     public function dispatch() {
         $requestMethod = $_SERVER["REQUEST_METHOD"] ?? "GET";
-        $requestPath = $_SERVER["REQUEST_URI"] ?? "/";
+        $url = $_SERVER["REQUEST_URI"] ?? "/";
 
-        $candidateRoutes = $this->findCandidateRoutes($requestPath);
+        $candidateRoutes = $this->findCandidateRoutes($url);
         $hasPathMatched = ! empty($candidateRoutes);
 
         $candidateRoutes = self::filterByMethod($candidateRoutes, $requestMethod);
@@ -24,6 +62,7 @@ class Router {
 
         if ($selectedRoute) {
             try {
+                $this->current = $selectedRoute;
                 return $selectedRoute->dispatch();
             }
             catch (Throwable $e) {
@@ -38,9 +77,11 @@ class Router {
         return $this->dispatchNotFound();
     }
 
-    private function findCandidateRoutes(string $path): array {
-        return array_filter($this->routes, function($route) use ($path) {
-            return $route->matchPath($path);
+    private function findCandidateRoutes(string $url): array {
+
+        return array_filter($this->routes, function(Route $route) use ($url) {
+
+            return $route->matchUrl($url);
         });
     }
 
@@ -71,11 +112,4 @@ class Router {
         $this->errorHandler[404] ??= fn() => "404 not found";
         return $this->errorHandler[404]();
     }
-
-    public function redirect($path) {
-        header("Location: {$path}", $replace=true, $code=301);
-        exit;
-    }
-
-
 }

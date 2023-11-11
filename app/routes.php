@@ -1,5 +1,7 @@
 <?php
-use Framework\Routing\Router;
+use Slimmvc\Routing\Router;
+
+
 
 return function (Router $router) {
     $router->add("GET", "/", fn() => "base service: hello world");
