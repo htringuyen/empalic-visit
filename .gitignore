@@ -1,0 +1,4 @@
+.htaccess
+composer.phar
+vendor/
+.idea/
