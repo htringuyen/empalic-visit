@@ -2,7 +2,7 @@ CREATE DATABASE empalic_visit;
 USE empalic_visit;
 
 CREATE TABLE Patient (
-            id INT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             citizenId VARCHAR(20) NOT NULL,
             firstName VARCHAR(100) NOT NULL,
             lastName VARCHAR(100) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE Patient (
 );
 
 CREATE TABLE Synonym (
-            id INT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             content VARCHAR(2000) NOT NULL,
             language VARCHAR(100) NOT NULL
 );
@@ -59,13 +59,13 @@ CREATE TABLE ClinicalNeedDetail (
 );
 
 CREATE TABLE ClinicalNeed (
-            id INT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             specialityId INT NOT NULL,
             careIntensityId INT NOT NULL
 );
 
 CREATE TABLE Referral (
-            id INT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             patientId INT NOT NULL,
             clinicalNeedId INT NOT NULL,
             fromProvider VARCHAR(200) NOT NULL,
@@ -75,28 +75,28 @@ CREATE TABLE Referral (
 );
 
 CREATE TABLE SlotScheduling (
-            id VARCHAR(50) PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             date DATE NOT NULL,
             room SMALLINT NOT NULL,
             providerName VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE AnchorHour (
-            id INT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             hour SMALLINT NOT NULL,
             totalSlots SMALLINT NOT NULL,
             schedulingId VARCHAR(50)
 );
 
 CREATE TABLE Slot (
-            id VARCHAR(50) PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             ordinal SMALLINT NOT NULL,
             hourSeq SMALLINT NOT NULL,
             anchorHourId INT NOT NULL
 );
 
 CREATE TABLE Appointment (
-            id INT PRIMARY KEY,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             patientId INT NOT NULL,
             clinicalNeedId INT NOT NULL,
             slotId VARCHAR(50) NOT NULL
@@ -121,24 +121,37 @@ ADD FOREIGN KEY (serviceId) REFERENCES Service(id),
 ADD FOREIGN KEY (careIntensityId) REFERENCES CareIntensity(id);
 
 ALTER TABLE ClinicalNeed
+AUTO_INCREMENT = 1000001,
 ADD FOREIGN KEY (specialityId) REFERENCES Specialty(id),
 ADD FOREIGN KEY (careIntensityId) REFERENCES CareIntensity(id);
 
 ALTER TABLE Referral
 ADD FOREIGN KEY (patientId) REFERENCES Patient(id),
+AUTO_INCREMENT = 1000001,
 ADD FOREIGN KEY (clinicalNeedId) REFERENCES ClinicalNeed(id);
 
 ALTER TABLE AnchorHour
+AUTO_INCREMENT = 1000001,
 ADD FOREIGN KEY (schedulingId) REFERENCES SlotScheduling(id);
 
 ALTER TABLE Slot
+AUTO_INCREMENT = 1000001
 ADD FOREIGN KEY (anchorHourId) REFERENCES AnchorHour(id);
 
 ALTER TABLE Appointment
+AUTO_INCREMENT = 1000001
 ADD FOREIGN KEY (patientId) REFERENCES Patient(id),
 ADD FOREIGN KEY (clinicalNeedId) REFERENCES ClinicalNeed(id),
 ADD FOREIGN KEY (slotId) REFERENCES Slot(id);
 
+ALTER TABLE Synonym
+AUTO_INCREMENT = 1000001;
+
+ALTER TABLE SlotScheduling
+AUTO_INCREMENT = 1000001;
+
+ALTER TABLE Patient
+AUTO_INCREMENT = 1000001;
 
 
 
